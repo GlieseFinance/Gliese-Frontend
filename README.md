@@ -1,6 +1,6 @@
-<p style="text-align: center"><img src="https://raw.githubusercontent.com/GlieseFinance/Gliese-Frontend/public/gliese-logo.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/GlieseFinance/Gliese-Frontend/main/public/gliese-logo.svg"/></p>
 
-<h1 style="text-align: center">Gliese Finance</h1>
+<h1 align="center">Gliese Finance</h1>
 
 ## Development
 
