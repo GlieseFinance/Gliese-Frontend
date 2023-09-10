@@ -3,7 +3,7 @@
 import type { NextPage } from "next";
 import Layout from "../components/layout";
 import CountUp from "react-countup";
-import { daoFeatures, questions } from "./constants";
+import { daoFeatures, questions } from "../constants";
 
 const whyGUSD = [
   {
