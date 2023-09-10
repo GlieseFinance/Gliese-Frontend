@@ -26,180 +26,182 @@ const whyGUSD = [
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="block-container flex justify-between pt-[60px]">
-        <img src="/image-bg-left.png" className="w-[169px] h-[290px]" />
-        <div>
-          <div className="text-center text-[72px] font-black">Unleash</div>
-          <div className="text-linear text-center text-[72px] font-black">
-            Power Of LSD
-          </div>
+      <>
+        <div className="block-container flex justify-between pt-[60px]">
+          <img src="/image-bg-left.png" className="w-[169px] h-[290px]" />
+          <div>
+            <div className="text-center text-[72px] font-black">Unleash</div>
+            <div className="text-linear text-center text-[72px] font-black">
+              Power Of LSD
+            </div>
 
-          <div className="text-[16px] font-normal text-center text-[#aaa]">
-            The First Interest-Bearing Stablecoin (APY ~8.27%)
-          </div>
+            <div className="text-[16px] font-normal text-center text-[#aaa]">
+              The First Interest-Bearing Stablecoin (APY ~8.27%)
+            </div>
 
-          <div className="flex justify-center">
-            <div className="bg-[#02f5ae] pt-[12px] pb-[12px] pl-[36px] pr-[36px] text-[#000] mt-[32px] rounded-md">
-              Launch APP
-            </div>
-          </div>
-        </div>
-        <img src="/image-bg-right.png" className="w-[171px] h-[292px]" />
-      </div>
-      <div
-        className="block-container flex justify-between mt-[68px]"
-        style={{ gap: 40 }}
-      >
-        <div className="card">
-          <div className="flex justify-center">
-            <img src="/icon-lsd-1.svg" />
-          </div>
-          <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
-            $<CountUp end={38814823} />
-          </div>
-          <div className="text-[14px] font-normal text-center text-[#aaa]">
-            Total Evmos/stEvmos Staked
-          </div>
-        </div>
-        <div className="card">
-          <div className="flex justify-center">
-            <img src="/icon-lsd-2.svg" />
-          </div>
-          <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
-            $<CountUp end={173089124} />
-          </div>
-          <div className="text-[14px] font-normal text-center text-[#aaa]">
-            Total gUSD in Circulation
-          </div>
-        </div>
-        <div className="card">
-          <div className="flex justify-center">
-            <img src="/icon-lsd-3.svg" />
-          </div>
-          <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
-            $<CountUp end={1101234} />
-          </div>
-          <div className="text-[14px] font-normal text-center text-[#aaa]">
-            Total gUSD Yield Paid
-          </div>
-        </div>
-      </div>
-      <div className="block-container">
-        <div className="title">
-          How Glise <span className="text-linear">Works</span>
-        </div>
-        <div className="works flex justify-between items-center">
-          <div className="flex flex-1 flex-col" style={{ gap: 10 }}>
-            <div className="card">
-              <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
-                STEP 1 - Deposit
-              </div>
-              <div className="text-[14px] font-normal text-center text-[#aaa]">
-                Deposit Evmos/stEvmos as collateral
-              </div>
-            </div>
-            <div className="card">
-              <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
-                STEP 2 - Mint gUSD
-              </div>
-              <div className="text-[14px] font-normal text-center text-[#aaa]">
-                Mint/Borrow gUSD against your collateral
-              </div>
-            </div>
-            <div className="card">
-              <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
-                STEP 3 - Receive Interest or Spend
-              </div>
-              <div className="text-[14px] font-normal text-center text-[#aaa]">
-                Hold gUSD to receive interest (APY ~ 7.2%) or use it in other
-                DeFi protocols
+            <div className="flex justify-center">
+              <div className="bg-[#02f5ae] pt-[12px] pb-[12px] pl-[36px] pr-[36px] text-[#000] mt-[32px] rounded-md">
+                Launch APP
               </div>
             </div>
           </div>
-          <div className="flex-1 justify-center flex">
-            <img src="/image-phase-1.png" className="w-[305px]" />
+          <img src="/image-bg-right.png" className="w-[171px] h-[292px]" />
+        </div>
+        <div
+          className="block-container flex justify-between mt-[68px]"
+          style={{ gap: 40 }}
+        >
+          <div className="card">
+            <div className="flex justify-center">
+              <img src="/icon-lsd-1.svg" />
+            </div>
+            <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
+              $<CountUp end={38814823} />
+            </div>
+            <div className="text-[14px] font-normal text-center text-[#aaa]">
+              Total Evmos/stEvmos Staked
+            </div>
+          </div>
+          <div className="card">
+            <div className="flex justify-center">
+              <img src="/icon-lsd-2.svg" />
+            </div>
+            <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
+              $<CountUp end={173089124} />
+            </div>
+            <div className="text-[14px] font-normal text-center text-[#aaa]">
+              Total gUSD in Circulation
+            </div>
+          </div>
+          <div className="card">
+            <div className="flex justify-center">
+              <img src="/icon-lsd-3.svg" />
+            </div>
+            <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
+              $<CountUp end={1101234} />
+            </div>
+            <div className="text-[14px] font-normal text-center text-[#aaa]">
+              Total gUSD Yield Paid
+            </div>
           </div>
         </div>
-      </div>
-      <div className="block-container">
-        <div className="title">
-          Why do you need <span className="text-linear">gUSD?</span>
-        </div>
-        <div className="flex justify-between items-center">
-          <div className="mr-[75px] ">
-            <img src="/image-intro-2.svg" className="w-[337px]" />
+        <div className="block-container">
+          <div className="title">
+            How Glise <span className="text-linear">Works</span>
           </div>
-          <div className="flex flex-col flex-1">
-            {whyGUSD.map((i) => (
-              <div className="why-item flex items-center" key={i.title}>
-                <div>
-                  <img src={i.icon} className="w-[80px]" />
+          <div className="works flex justify-between items-center">
+            <div className="flex flex-1 flex-col" style={{ gap: 10 }}>
+              <div className="card">
+                <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
+                  STEP 1 - Deposit
                 </div>
-                <div className="flex-1 ml-[16px]">
-                  <div className="text-[16px] font-bold mb-[8px]">
-                    {i.title}
+                <div className="text-[14px] font-normal text-center text-[#aaa]">
+                  Deposit Evmos/stEvmos as collateral
+                </div>
+              </div>
+              <div className="card">
+                <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
+                  STEP 2 - Mint gUSD
+                </div>
+                <div className="text-[14px] font-normal text-center text-[#aaa]">
+                  Mint/Borrow gUSD against your collateral
+                </div>
+              </div>
+              <div className="card">
+                <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
+                  STEP 3 - Receive Interest or Spend
+                </div>
+                <div className="text-[14px] font-normal text-center text-[#aaa]">
+                  Hold gUSD to receive interest (APY ~ 7.2%) or use it in other
+                  DeFi protocols
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 justify-center flex">
+              <img src="/image-phase-1.png" className="w-[305px]" />
+            </div>
+          </div>
+        </div>
+        <div className="block-container">
+          <div className="title">
+            Why do you need <span className="text-linear">gUSD?</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <div className="mr-[75px] ">
+              <img src="/image-intro-2.svg" className="w-[337px]" />
+            </div>
+            <div className="flex flex-col flex-1">
+              {whyGUSD.map((i) => (
+                <div className="why-item flex items-center" key={i.title}>
+                  <div>
+                    <img src={i.icon} className="w-[80px]" />
                   </div>
-                  <div className="font-normal text-[14px] text-[#aaa]">
-                    {i.desc}
+                  <div className="flex-1 ml-[16px]">
+                    <div className="text-[16px] font-bold mb-[8px]">
+                      {i.title}
+                    </div>
+                    <div className="font-normal text-[14px] text-[#aaa]">
+                      {i.desc}
+                    </div>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="block-container">
+          <div className="title">
+            Gliese <span className="text-linear">DAO</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <div className="w-[615px]">
+              <div className="text-[24px] mb-[24px] font-semi-bold">
+                Gliese DAO serves as the backbone of Gliese Finance's
+                decision-making process.
+              </div>
+              <div className="font-normal text-[14px] text-[#aaa]">
+                The Gliese DAO will be governed by GLSE token holders who will
+                have the power to influence the direction of the project,
+                propose and vote on various decisions, and collectively manage
+                the protocol. This community-driven approach helps ensure that
+                the Gliese Finance project remains true to its decentralized
+                nature and that its development is in line with the interests of
+                its users.
+              </div>
+            </div>
+            <div>
+              <img src="/image-intro-1.svg" className="w-[350px]" />
+            </div>
+          </div>
+        </div>
+        <div className="block-container flex items-center mt-[60px]">
+          {daoFeatures.map((i) => (
+            <div key={i.text} className="flex-1">
+              <div className="flex justify-center ">
+                <img src={i.icon} className="w-[82px] dao-icon" />
+              </div>
+              <div className="text-center text-[14px] font-normal mt-[24px]">
+                {i.text}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="block-container mb-[60px]">
+          <div className="title">
+            Frequently Asked <span className="text-linear">Questions</span>
+          </div>
+          <div>
+            {questions.map((item, index) => (
+              <div key={index} className="mb-[24px]">
+                <div className="mb-[24px]]">{item.questions}</div>
+                <div className="font-normal text-[14px] text-[#aaa]">
+                  {item.answer}
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-      <div className="block-container">
-        <div className="title">
-          Gliese <span className="text-linear">DAO</span>
-        </div>
-        <div className="flex justify-between items-center">
-          <div className="w-[615px]">
-            <div className="text-[24px] mb-[24px] font-semi-bold">
-              Gliese DAO serves as the backbone of Gliese Finance's
-              decision-making process.
-            </div>
-            <div className="font-normal text-[14px] text-[#aaa]">
-              The Gliese DAO will be governed by GLSE token holders who will
-              have the power to influence the direction of the project, propose
-              and vote on various decisions, and collectively manage the
-              protocol. This community-driven approach helps ensure that the
-              Gliese Finance project remains true to its decentralized nature
-              and that its development is in line with the interests of its
-              users.
-            </div>
-          </div>
-          <div>
-            <img src="/image-intro-1.svg" className="w-[350px]" />
-          </div>
-        </div>
-      </div>
-      <div className="block-container flex items-center mt-[60px]">
-        {daoFeatures.map((i) => (
-          <div key={i.text} className="flex-1">
-            <div className="flex justify-center ">
-              <img src={i.icon} className="w-[82px] dao-icon" />
-            </div>
-            <div className="text-center text-[14px] font-normal mt-[24px]">
-              {i.text}
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="block-container mb-[60px]">
-        <div className="title">
-          Frequently Asked <span className="text-linear">Questions</span>
-        </div>
-        <div>
-          {questions.map((item, index) => (
-            <div key={index} className="mb-[24px]">
-              <div className="mb-[24px]]">{item.questions}</div>
-              <div className="font-normal text-[14px] text-[#aaa]">
-                {item.answer}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      </>
     </Layout>
   );
 };
