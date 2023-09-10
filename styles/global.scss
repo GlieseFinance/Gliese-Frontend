@@ -1,3 +1,90 @@
+.block-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  padding: 12px 40px;
+  line-height: 36px;
+  background: #000;
+  &-item {
+    &-active {
+      color: #02f5ae;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 60px 40px;
+  background: linear-gradient(
+    90.63deg,
+    #131e1e 1.68%,
+    rgba(38, 62, 62, 0) 100%
+  );
+}
+
+.link {
+  transition: all 0.3s;
+  &:hover {
+    color: #02f5ae;
+    transition: all 0.3s;
+  }
+}
+
+.text-linear {
+  background: linear-gradient(90deg, #02f5ae 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.body {
+  min-height: calc(100vh - 150px);
+  // position: relative;
+  padding-top: 64px;
+}
+
+.card {
+  flex: 1;
+  padding: 26px;
+  border: 0.5px solid rgba(0, 255, 224, 0.4);
+  border-radius: 10px;
+}
+
+.title {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-weight: 900;
+  text-align: center;
+  font-size: 30px;
+}
+
+.works {
+  .card {
+    width: 416px;
+  }
+}
+
+.why-item {
+  padding: 24px;
+  border: 0.5px solid rgba(0, 255, 224, 0.4);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
