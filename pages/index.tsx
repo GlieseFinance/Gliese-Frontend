@@ -4,6 +4,7 @@ import type { NextPage } from "next";
 import Layout from "../components/layout";
 import CountUp from "react-countup";
 import { daoFeatures, questions } from "../constants";
+import { toast } from "react-hot-toast";
 
 const whyGUSD = [
   {
@@ -40,7 +41,10 @@ const Home: NextPage = () => {
             </div>
 
             <div className="flex justify-center">
-              <div className="bg-[#02f5ae] pt-[12px] pb-[12px] pl-[36px] pr-[36px] text-[#000] mt-[32px] rounded-md">
+              <div
+                className="bg-[#02f5ae] pt-[12px] pb-[12px] pl-[36px] pr-[36px] text-[#000] mt-[32px] rounded-md"
+                onClick={() => toast("Coming Soon")}
+              >
                 Launch APP
               </div>
             </div>

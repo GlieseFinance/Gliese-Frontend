@@ -10,6 +10,9 @@ import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { evmos, evmosTestnet } from "wagmi/chains";
 import { WagmiConfig, configureChains, createConfig, useNetwork } from "wagmi";
 import "@rainbow-me/rainbowkit/styles.css";
+import toast, { ToastBar, Toaster } from "react-hot-toast";
+import { Menu, MenuItem } from "@mui/material";
+import { useRouter } from "next/router";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [process.env.NEXT_PUBLIC_EVMOS_NET === "test" ? evmosTestnet : evmos],
@@ -36,6 +39,7 @@ const navs = [
   {
     text: "Stake",
     path: "/stake",
+    disabled: true,
   },
   {
     text: "gUSD",
@@ -47,19 +51,19 @@ const navs = [
     children: [
       {
         text: "Mint gUSD",
-        path: "/mint",
+        path: "/dashboard?tab=mint",
       },
       {
         text: "Withdraw Evmos",
-        path: "/withdraw",
+        path: "/dashboard?tab=withdraw",
       },
       {
         text: "Repay gUSD",
-        path: "/repay",
+        path: "/dashboard?tab=repay",
       },
       {
         text: "Redeem gUSD",
-        path: "/redeem",
+        path: "/dashboard?tab=redeem",
       },
     ],
   },
@@ -94,7 +98,15 @@ const footerLinks = [
 
 export default function Layout({ children }: { children: ReactElement }) {
   const pathname = usePathname();
-
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const router = useRouter();
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <div>
       <Head>
@@ -121,10 +133,57 @@ export default function Layout({ children }: { children: ReactElement }) {
                 >
                   {item.children ? (
                     <>
-                      <div>{item.text}</div>
+                      <Link
+                        href={item.path}
+                        className="cursor-pointer flex items-center"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleClick(e);
+                        }}
+                      >
+                        {item.text}
+
+                        <img
+                          src="/icon-arrow.svg"
+                          className={`w-[10px] ml-[7px] ${
+                            open ? "rotate-up" : ""
+                          }`}
+                        />
+                      </Link>
+                      <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        className="custom-menu"
+                      >
+                        {item.children.map((i) => (
+                          <MenuItem
+                            key={i.text}
+                            onClick={(e) => {
+                              router.push(i.path);
+                              handleClose();
+                            }}
+                            className="custom-menu-item"
+                          >
+                            {i.text}
+                          </MenuItem>
+                        ))}
+                      </Menu>
                     </>
                   ) : (
-                    <Link href={item.path}>{item.text}</Link>
+                    <Link
+                      className="cursor-pointer"
+                      href={item.path}
+                      onClick={(e) => {
+                        if (item.disabled) {
+                          e.preventDefault();
+                          toast("Coming Soon");
+                        }
+                      }}
+                    >
+                      {item.text}
+                    </Link>
                   )}
                 </div>
               ))}
@@ -177,6 +236,19 @@ export default function Layout({ children }: { children: ReactElement }) {
             </div>
           </footer>
         </WagmiConfig>
+
+        <Toaster position="top-center">
+          {(t) => (
+            <ToastBar toast={t}>
+              {({ icon, message }) => (
+                <div className="gliese-toast">
+                  {icon}
+                  {message}
+                </div>
+              )}
+            </ToastBar>
+          )}
+        </Toaster>
       </body>
     </div>
   );
