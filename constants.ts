@@ -48,7 +48,7 @@ export const daoFeatures = [
     text: "Mint gUSD and earn GLSE token",
   },
   {
-    icon: "/icon-gliese-1.png",
+    icon: "/icon-gliese-3.png",
     text: "Stake GLSE and share protocol revenue",
   },
   {

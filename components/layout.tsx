@@ -115,8 +115,18 @@ export default function Layout({ children }: { children: ReactElement }) {
         <link rel="icon" type="image/x-icon" href="/gliese-logo.svg" />
       </Head>
       <body>
+        <img
+          className="absolute w-[451px] h-[484px] top-[0px] left-[0px] z-[12]"
+          style={{ pointerEvents: "none" }}
+          src="/image-color-left.svg"
+        />
+        <img
+          className="absolute w-[386px] h-[811px] top-[0px] right-[0px]"
+          style={{ pointerEvents: "none" }}
+          src="/image-color-right.svg"
+        />
         <WagmiConfig config={wagmiClient}>
-          <header className="flex justify-between relative header z-[10]">
+          <header className="flex justify-between relative header z-[11]">
             <div className="header-left flex items-center">
               <div className="mr-[90px]">
                 <img src="/icon-logo-white.svg" />
@@ -199,14 +209,6 @@ export default function Layout({ children }: { children: ReactElement }) {
               </RainbowKitProvider>
             </div>
           </header>
-          <img
-            className="absolute w-[465px] h-[465px] top-[-232px] left-[-232px] z-[0]"
-            src="/image-color-left.svg"
-          />
-          <img
-            className="absolute w-[465px] h-[465px] top-[140px] right-[-232px] z-[0]"
-            src="/image-color-right.svg"
-          />
           <div className="body">{children}</div>
           <footer className="footer flex justify-between items-center">
             <div>

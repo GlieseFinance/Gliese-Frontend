@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import CountUp from "react-countup";
 import { daoFeatures, questions } from "../constants";
 import { toast } from "react-hot-toast";
+import { DOMElement, useEffect, useRef, useState } from "react";
 
 const whyGUSD = [
   {
@@ -25,6 +26,76 @@ const whyGUSD = [
 ];
 
 const Home: NextPage = () => {
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const card2Ref = useRef<HTMLDivElement | null>(null);
+  const card3Ref = useRef<HTMLDivElement | null>(null);
+  const iconPhase1Ref = useRef<HTMLImageElement | null>(null);
+  const iconPhase1RingRef = useRef<HTMLImageElement | null>(null);
+  const iconExternal1 = useRef<HTMLImageElement | null>(null);
+  const iconExternal2 = useRef<HTMLImageElement | null>(null);
+  const iconExternal3 = useRef<HTMLImageElement | null>(null);
+  const iconExternal4 = useRef<HTMLImageElement | null>(null);
+  const [faqVisible, setFaqVisible] = useState(
+    new Array(questions.length).fill(false)
+  );
+
+  useEffect(() => {
+    (card2Ref.current as any).top = 0;
+    const onScroll = () => {
+      const top = (scrollRef.current as any).getClientRects()[0].top;
+      (card2Ref.current as any).style.top = (top > 63 ? top : 63) + "px";
+      (iconPhase1Ref.current as any).style.top =
+        (top > 0 ? (250 - top > 0 ? 250 - top : 0) : 250) + "px";
+      if (top < 70) {
+        (iconPhase1Ref.current as any).src = "/icon-phase-2.svg";
+      } else {
+        (iconPhase1Ref.current as any).src = "/icon-phase-1.svg";
+      }
+      if (top < 125) {
+        (card3Ref.current as any).style.visibility = "visible";
+        (card3Ref.current as any).style.top =
+          (top > -70 ? top + 200 : 130) + "px";
+      } else {
+        (card3Ref.current as any).style.visibility = "hidden";
+      }
+
+      if (top < -5) {
+        (iconPhase1RingRef.current as any).style.opacity = 0;
+
+        if (top > -106) {
+          (iconExternal1.current as any).style.opacity = 1;
+          (iconExternal2.current as any).style.opacity = 1;
+          (iconExternal3.current as any).style.opacity = 1;
+          (iconExternal4.current as any).style.opacity = 1;
+          (iconExternal1.current as any).style.marginLeft = top * 3 + "px";
+          (iconExternal1.current as any).style.marginTop = top * 1 + "px";
+
+          // let calcTop =
+
+          (iconExternal2.current as any).style.marginLeft = -top * 3 + "px";
+          (iconExternal2.current as any).style.marginTop = top * 1 + "px";
+
+          (iconExternal3.current as any).style.marginLeft = top * 3 + "px";
+          (iconExternal3.current as any).style.marginTop = -top * 1 + "px";
+
+          (iconExternal4.current as any).style.marginLeft = -top * 3 + "px";
+          (iconExternal4.current as any).style.marginTop = -top * 1 + "px";
+        }
+      } else {
+        (iconPhase1RingRef.current as any).style.opacity = 1;
+
+        (iconExternal1.current as any).style.opacity = 0;
+        (iconExternal2.current as any).style.opacity = 0;
+        (iconExternal3.current as any).style.opacity = 0;
+        (iconExternal4.current as any).style.opacity = 0;
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
     <Layout>
       <>
@@ -42,7 +113,7 @@ const Home: NextPage = () => {
 
             <div className="flex justify-center">
               <div
-                className="bg-[#02f5ae] pt-[12px] pb-[12px] pl-[36px] pr-[36px] text-[#000] mt-[32px] rounded-md"
+                className="bg-[#02f5ae] pt-[12px] pb-[12px] pl-[36px] pr-[36px] text-[#000] mt-[32px] rounded-md custom-button-hover"
                 onClick={() => toast("Coming Soon")}
               >
                 Launch APP
@@ -89,13 +160,13 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="block-container">
+        <div className="block-container h-[600px]" ref={scrollRef}>
           <div className="title">
             How Glise <span className="text-linear">Works</span>
           </div>
-          <div className="works flex justify-between items-center">
-            <div className="flex flex-1 flex-col" style={{ gap: 10 }}>
-              <div className="card">
+          <div className="works relative flex justify-between items-center">
+            <div className="flex relative flex-1 flex-col" style={{ gap: 10 }}>
+              <div className="card card-1">
                 <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
                   STEP 1 - Deposit
                 </div>
@@ -103,7 +174,7 @@ const Home: NextPage = () => {
                   Deposit Evmos/stEvmos as collateral
                 </div>
               </div>
-              <div className="card">
+              <div className="card absolute card-2" ref={card2Ref}>
                 <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
                   STEP 2 - Mint gUSD
                 </div>
@@ -111,7 +182,7 @@ const Home: NextPage = () => {
                   Mint/Borrow gUSD against your collateral
                 </div>
               </div>
-              <div className="card">
+              <div className="card absolute card-3" ref={card3Ref}>
                 <div className="text-center font-bold text-[20px]  mt-[0px] mb-[20px]">
                   STEP 3 - Receive Interest or Spend
                 </div>
@@ -121,8 +192,37 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 justify-center flex">
-              <img src="/image-phase-1.png" className="w-[305px]" />
+            <div className="flex-1 justify-center flex flex-col items-center">
+              <img
+                src="/icon-phase-1.svg"
+                className="w-[205px] ml-[-20px] icon-phase-1"
+                ref={iconPhase1Ref}
+              />
+              <img
+                src="/icon-phase-1-bottom.svg"
+                className="w-[305px]  icon-phase-1-ring z-[1]"
+                ref={iconPhase1RingRef}
+              />
+              <img
+                src="/icon-phase-2-1.svg"
+                className="w-[123px] icon-phase-2"
+                ref={iconExternal1}
+              />
+              <img
+                src="/icon-phase-2-2.svg"
+                className="w-[123px] icon-phase-2"
+                ref={iconExternal2}
+              />
+              <img
+                src="/icon-phase-2-3.svg"
+                className="w-[123px] icon-phase-2"
+                ref={iconExternal3}
+              />
+              <img
+                src="/icon-phase-2-4.svg"
+                className="w-[123px] icon-phase-2"
+                ref={iconExternal4}
+              />
             </div>
           </div>
         </div>
@@ -196,9 +296,30 @@ const Home: NextPage = () => {
           </div>
           <div>
             {questions.map((item, index) => (
-              <div key={index} className="mb-[24px]">
-                <div className="mb-[24px]]">{item.questions}</div>
-                <div className="font-normal text-[14px] text-[#aaa]">
+              <div key={index}>
+                <div
+                  className="cursor-pointer flex items-center question justify-between"
+                  onClick={() => {
+                    setFaqVisible((list) =>
+                      list.map((j, k) => (k === index ? !j : j))
+                    );
+                  }}
+                >
+                  <div>{item.questions}</div>
+                  <img
+                    src="/icon-arrow.svg"
+                    style={{
+                      transform: `rotate(${
+                        faqVisible[index] ? "180" : "0"
+                      }deg)`,
+                      transition: "all 0.3s",
+                    }}
+                  />
+                </div>
+                <div
+                  className="font-normal text-[14px] text-[#aaa] answer"
+                  style={{ display: faqVisible[index] ? "block" : "none" }}
+                >
                   {item.answer}
                 </div>
               </div>
