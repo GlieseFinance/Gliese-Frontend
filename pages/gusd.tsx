@@ -43,9 +43,15 @@ export default function GUSD() {
             </div>
           </div>
           <div className="relative flex-1 h-[400px] mt-[70px]">
+          <img src="/ring.svg" className="ring-border" />
             <img src="/icon-coin.png" className="w-[320px] ml-[104px]" />
+            {/* <div className="line">
+            <img src="/icon-dollar.svg" className="icon-dollar" />
+            </div> */}
+            {/* <div className="icon-ring"></div> */}
             <img src="/ring.svg" className="ring-border" />
             <img src="/ring.svg" className="ring-border-2" />
+           
           </div>
         </div>
         <div className="block-container flex items-center  gap-[45px] pb-[100px]">

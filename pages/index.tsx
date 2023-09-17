@@ -35,6 +35,7 @@ const Home: NextPage = () => {
   const iconExternal2 = useRef<HTMLImageElement | null>(null);
   const iconExternal3 = useRef<HTMLImageElement | null>(null);
   const iconExternal4 = useRef<HTMLImageElement | null>(null);
+  const lineRef = useRef<HTMLDivElement | null>(null);
   const [faqVisible, setFaqVisible] = useState(
     new Array(questions.length).fill(false)
   );
@@ -58,11 +59,13 @@ const Home: NextPage = () => {
       } else {
         (card3Ref.current as any).style.visibility = "hidden";
       }
-
       if (top < -5) {
         (iconPhase1RingRef.current as any).style.opacity = 0;
 
         if (top > -106) {
+          (lineRef.current as any).style.transform = `scale(${
+            Math.abs(top) * 0.005
+          })`;
           (iconExternal1.current as any).style.opacity = 1;
           (iconExternal2.current as any).style.opacity = 1;
           (iconExternal3.current as any).style.opacity = 1;
@@ -83,7 +86,7 @@ const Home: NextPage = () => {
         }
       } else {
         (iconPhase1RingRef.current as any).style.opacity = 1;
-
+        (lineRef.current as any).style.transform = "scale(0)";
         (iconExternal1.current as any).style.opacity = 0;
         (iconExternal2.current as any).style.opacity = 0;
         (iconExternal3.current as any).style.opacity = 0;
@@ -199,7 +202,7 @@ const Home: NextPage = () => {
                 ref={iconPhase1Ref}
               />
               <img
-                src="/icon-phase-1-bottom.svg"
+                src="/icon-ring.svg"
                 className="w-[305px]  icon-phase-1-ring z-[1]"
                 ref={iconPhase1RingRef}
               />
@@ -223,6 +226,13 @@ const Home: NextPage = () => {
                 className="w-[123px] icon-phase-2"
                 ref={iconExternal4}
               />
+              <div
+                className="mt-[-60px] ml-[10px] line-container"
+                ref={lineRef}
+              >
+                <img src="/line-left.svg" className="w-[605px]" />
+                <img src="/line-right.svg" className="w-[605px] mt-[-350px]" />
+              </div>
             </div>
           </div>
         </div>
