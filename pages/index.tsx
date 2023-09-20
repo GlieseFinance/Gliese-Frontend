@@ -287,7 +287,7 @@ const Home: NextPage = () => {
             <div className="mr-[75px] ">
               <img src="/image-intro-2.svg" className="w-[337px]" />
             </div>
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 h-[480px]">
               {whyGUSD.map((i, index) => (
                 <CSSTransition
                   timeout={2000}
