@@ -295,11 +295,9 @@ const Home: NextPage = () => {
                   mountOnEnter
                   unmountOnExit
                   in={leftInFlag[index]}
+                  key={i.title}
                 >
-                  <div
-                    className="why-item flex items-center h-[144px]"
-                    key={i.title}
-                  >
+                  <div className="why-item flex items-center h-[144px]">
                     <div>
                       <img src={i.icon} className="w-[80px]" />
                     </div>

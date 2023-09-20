@@ -69,9 +69,9 @@ export default function GUSD() {
               in={featureIn}
               mountOnEnter
               unmountOnExit
+              key={i.title}
             >
               <div
-                key={i.title}
                 className="flex-1 r flex flex-col justify-start items-center gusd-item"
                 style={{ whiteSpace: "pre-wrap" }}
               >
