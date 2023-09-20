@@ -6,6 +6,7 @@ import CountUp from "react-countup";
 import { daoFeatures, questions } from "../constants";
 import { toast } from "react-hot-toast";
 import { DOMElement, useEffect, useRef, useState } from "react";
+import { CSSTransition } from "react-transition-group";
 
 const whyGUSD = [
   {
@@ -26,6 +27,7 @@ const whyGUSD = [
 ];
 
 const Home: NextPage = () => {
+  const [summaryIn, setSummaryIn] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const card2Ref = useRef<HTMLDivElement | null>(null);
   const card3Ref = useRef<HTMLDivElement | null>(null);
@@ -36,6 +38,8 @@ const Home: NextPage = () => {
   const iconExternal3 = useRef<HTMLImageElement | null>(null);
   const iconExternal4 = useRef<HTMLImageElement | null>(null);
   const lineRef = useRef<HTMLDivElement | null>(null);
+  const leftInLoaded = useRef<Boolean>();
+  const [leftInFlag, setLeftInFlag] = useState([false, false, false]);
   const [faqVisible, setFaqVisible] = useState(
     new Array(questions.length).fill(false)
   );
@@ -44,6 +48,17 @@ const Home: NextPage = () => {
     (card2Ref.current as any).top = 0;
     const onScroll = () => {
       const top = (scrollRef.current as any).getClientRects()[0].top;
+
+      if (top < -100) {
+        if (!leftInLoaded.current) {
+          setLeftInFlag([true, false, false]);
+
+          setTimeout(() => setLeftInFlag([true, true, false]), 500);
+          setTimeout(() => setLeftInFlag([true, true, true]), 1500);
+          leftInLoaded.current = true;
+        }
+      }
+
       (card2Ref.current as any).style.top = (top > 63 ? top : 63) + "px";
       (iconPhase1Ref.current as any).style.top =
         (top > 0 ? (250 - top > 0 ? 250 - top : 0) : 250) + "px";
@@ -99,6 +114,10 @@ const Home: NextPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setSummaryIn(true);
+  }, []);
+
   return (
     <Layout>
       <>
@@ -127,41 +146,65 @@ const Home: NextPage = () => {
         </div>
         <div
           className="block-container flex justify-between mt-[68px]"
-          style={{ gap: 40 }}
+          style={{ gap: 40, height: 206 }}
         >
-          <div className="card">
-            <div className="flex justify-center">
-              <img src="/icon-lsd-1.svg" />
+          <CSSTransition
+            timeout={2000}
+            classNames="down-animation"
+            in={summaryIn}
+            mountOnEnter
+            unmountOnExit
+          >
+            <div className="card">
+              <div className="flex justify-center">
+                <img src="/icon-lsd-1.svg" />
+              </div>
+              <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
+                $<CountUp end={38814823} />
+              </div>
+              <div className="text-[14px] font-normal text-center text-[#aaa]">
+                Total Evmos/stEvmos Staked
+              </div>
             </div>
-            <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
-              $<CountUp end={38814823} />
+          </CSSTransition>
+          <CSSTransition
+            timeout={2000}
+            classNames="down-animation"
+            in={summaryIn}
+            mountOnEnter
+            unmountOnExit
+          >
+            <div className="card">
+              <div className="flex justify-center">
+                <img src="/icon-lsd-2.svg" />
+              </div>
+              <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
+                $<CountUp end={173089124} />
+              </div>
+              <div className="text-[14px] font-normal text-center text-[#aaa]">
+                Total gUSD in Circulation
+              </div>
             </div>
-            <div className="text-[14px] font-normal text-center text-[#aaa]">
-              Total Evmos/stEvmos Staked
+          </CSSTransition>
+          <CSSTransition
+            timeout={2000}
+            classNames="down-animation"
+            in={summaryIn}
+            mountOnEnter
+            unmountOnExit
+          >
+            <div className="card">
+              <div className="flex justify-center">
+                <img src="/icon-lsd-3.svg" />
+              </div>
+              <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
+                $<CountUp end={1101234} />
+              </div>
+              <div className="text-[14px] font-normal text-center text-[#aaa]">
+                Total gUSD Yield Paid
+              </div>
             </div>
-          </div>
-          <div className="card">
-            <div className="flex justify-center">
-              <img src="/icon-lsd-2.svg" />
-            </div>
-            <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
-              $<CountUp end={173089124} />
-            </div>
-            <div className="text-[14px] font-normal text-center text-[#aaa]">
-              Total gUSD in Circulation
-            </div>
-          </div>
-          <div className="card">
-            <div className="flex justify-center">
-              <img src="/icon-lsd-3.svg" />
-            </div>
-            <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
-              $<CountUp end={1101234} />
-            </div>
-            <div className="text-[14px] font-normal text-center text-[#aaa]">
-              Total gUSD Yield Paid
-            </div>
-          </div>
+          </CSSTransition>
         </div>
         <div className="block-container h-[600px]" ref={scrollRef}>
           <div className="title">
@@ -245,20 +288,31 @@ const Home: NextPage = () => {
               <img src="/image-intro-2.svg" className="w-[337px]" />
             </div>
             <div className="flex flex-col flex-1">
-              {whyGUSD.map((i) => (
-                <div className="why-item flex items-center" key={i.title}>
-                  <div>
-                    <img src={i.icon} className="w-[80px]" />
-                  </div>
-                  <div className="flex-1 ml-[16px]">
-                    <div className="text-[16px] font-bold mb-[8px]">
-                      {i.title}
+              {whyGUSD.map((i, index) => (
+                <CSSTransition
+                  timeout={2000}
+                  classNames="left-animation"
+                  mountOnEnter
+                  unmountOnExit
+                  in={leftInFlag[index]}
+                >
+                  <div
+                    className="why-item flex items-center h-[144px]"
+                    key={i.title}
+                  >
+                    <div>
+                      <img src={i.icon} className="w-[80px]" />
                     </div>
-                    <div className="font-normal text-[14px] text-[#aaa]">
-                      {i.desc}
+                    <div className="flex-1 ml-[16px]">
+                      <div className="text-[16px] font-bold mb-[8px]">
+                        {i.title}
+                      </div>
+                      <div className="font-normal text-[14px] text-[#aaa]">
+                        {i.desc}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </CSSTransition>
               ))}
             </div>
           </div>

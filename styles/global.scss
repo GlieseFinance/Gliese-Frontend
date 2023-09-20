@@ -116,7 +116,7 @@ body {
   border: 1px solid transparent;
   transform-style: preserve-3d;
   &::after {
-    content: '';
+    content: "";
     width: 10px;
     height: 10px;
     left: 260px;
@@ -127,93 +127,92 @@ body {
     transform-style: preserve-3d;
     transform: translate(265px, 0px);
     animation: move 10s linear infinite;
-
   }
 }
 @keyframes move {
   100% {
     transform: translate(265px, 0px);
-}
+  }
 
-95% {
+  95% {
     transform: translate(252.02997682px, -14.83281573px);
-}
+  }
 
-90% {
+  90% {
     transform: translate(214.38950351px, -28.21369211px);
-}
+  }
 
-85% {
+  85% {
     transform: translate(155.76309186px, -38.83281573px);
-}
+  }
 
-80% {
+  80% {
     transform: translate(81.88950351px, -45.65071278px);
-}
+  }
 
-75% {
+  75% {
     transform: translate(0px, -48px);
-}
+  }
 
-70% {
+  70% {
     transform: translate(-81.88950351px, -45.65071278px);
-}
+  }
 
-65% {
+  65% {
     transform: translate(-155.76309186px, -38.83281573px);
-}
+  }
 
-60% {
+  60% {
     transform: translate(-214.38950351px, -28.21369211px);
-}
+  }
 
-55% {
+  55% {
     transform: translate(-252.02997682px, -14.83281573px);
-}
+  }
 
-50% {
+  50% {
     transform: translate(-265px, 0px);
-}
+  }
 
-45% {
+  45% {
     transform: translate(-252.02997682px, 14.83281573px);
-}
+  }
 
-40% {
+  40% {
     transform: translate(-214.38950351px, 28.21369211px);
-}
+  }
 
-35% {
+  35% {
     transform: translate(-155.76309186px, 38.83281573px);
-}
+  }
 
-30% {
+  30% {
     transform: translate(-81.88950351px, 45.65071278px);
-}
+  }
 
-25% {
+  25% {
     transform: translate(0px, 48px);
-}
+  }
 
-20% {
+  20% {
     transform: translate(81.88950351px, 45.65071278px);
-}
+  }
 
-15% {
+  15% {
     transform: translate(155.76309186px, 38.83281573px);
-}
+  }
 
-10% {
+  10% {
     transform: translate(214.38950351px, 28.21369211px);
-}
+  }
 
-5% {
+  5% {
     transform: translate(252.02997682px, 14.83281573px);
-}
+  }
 
-0% {
+  0% {
     transform: translate(265px, 0px);
-}
+  }
 }
 // .line {
 //   border: 2px solid #fff;
@@ -236,24 +235,23 @@ body {
 // }
 
 @keyframes dot-rotate {
-
   0% {
     transform: rotate(0) scaleY(2) rotate(-45deg);
-}
+  }
 
-100% {
+  100% {
     transform: rotate(-360deg) scaleY(2) rotate(-45deg);
-}
+  }
 }
 
 @keyframes box-rotate {
   0% {
     transform: rotate(45deg) scaleY(0.5) rotate(0);
-}
+  }
 
-100% {
+  100% {
     transform: rotate(45deg) scaleY(0.5) rotate(360deg);
-}
+  }
 }
 
 .dollar {
@@ -712,4 +710,48 @@ body {
 .custom-menu-item {
   font-size: 14px !important;
   color: #fff;
+}
+
+.down-animation-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.down-animation-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 2000ms;
+}
+
+.down-animation-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.down-animation-exit-active {
+  opacity: 0;
+  transform: translateY(300%);
+  transition: all 2000ms;
+}
+
+.left-animation-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.left-animation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 2000ms;
+}
+
+.left-animation-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.left-animation-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 2000ms;
 }
