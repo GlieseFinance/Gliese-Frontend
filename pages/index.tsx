@@ -155,7 +155,10 @@ const Home: NextPage = () => {
           >
             <div className="card">
               <div className="flex justify-center">
-                <img src="/icon-evmons.svg" className="w-[58px] h-[58px]" />
+                <img
+                  src="/icon-evmos-white.svg"
+                  className="w-[58px] h-[58px]"
+                />
               </div>
               <div className="text-center font-bold text-[28px] text-[#02f5ae] mt-[20px] mb-[12px]">
                 $ N/A

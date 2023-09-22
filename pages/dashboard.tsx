@@ -284,11 +284,11 @@ export default function Dashboard() {
         <div className="block-container flex items-center pt-[40px] pb-[40px]">
           <div className="text-linear text-[40px]">Overview</div>
           <img
-            src="/icon-eth.png"
+            src="/icon-evmos-white.svg"
             className="w-[30px] h-[30px] ml-[16px] mr-[16px]"
           />
           <div className="text-[24px]">
-            Evmos/USD $<CountUp end={price} decimals={6} />
+            stEvmos/USD $<CountUp end={price} decimals={6} />
           </div>
         </div>
         <Popover
