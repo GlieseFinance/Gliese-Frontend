@@ -27,7 +27,7 @@ const infoTextMap: any = {
 const leftBlockTextMap: any = {
   mint: {
     title: "Mint gUSD",
-    desc: "To mint (borrow) gUSD, you are required to deposit a specific amount of collateral (Evmos or stEvmos) using the Gliese platform, or have a pre-existing balance of Evmos or stEvmos within the Gliese Protocol. You can then generate gUSD against your collateral up to a maximum collateral ratio of 170%.",
+    desc: "To mint (borrow) gUSD, you are required to deposit a specific amount of collateral (Evmos or stEvmos) using the Gliese platform, or have a pre-existing balance of Evmos or stEvmos within the Gliese Protocol. You can then generate gUSD against your collateral up to a maximum collateral ratio of -%.",
   },
   withdraw: {
     title: "Withdraw stEvmos",
@@ -71,7 +71,7 @@ function MintPart() {
     <div>
       <div className="flex justify-between">
         <div>stEvmos</div>
-        <div style={{ color: "rgba(255,255,255,0.6)" }}>stEvmos1</div>
+        <div style={{ color: "rgba(255,255,255,0.6)" }}>stEVMOS</div>
       </div>
       <div>
         <OutlinedInput
@@ -108,7 +108,7 @@ function MintPart() {
         <div className="flex items-center">
           <img src="/icon-gas.svg" className="mr-[4px]" /> $0
         </div>
-        <div>Liquidation at {"<"} 150%</div>
+        <div>Liquidation at {"<"} -%</div>
       </div>
       <div
         className="custom-button cursor-not-allowed"
@@ -147,7 +147,7 @@ function WithdrawPart() {
         <div className="flex items-center">
           <img src="/icon-gas.svg" className="mr-[4px]" /> $0
         </div>
-        <div>Liquidation at {"<"} 150%</div>
+        <div>Liquidation at {"<"} -%</div>
       </div>
       <div
         className="custom-button fixed-bottom cursor-not-allowed"
@@ -186,7 +186,7 @@ function RepayPart() {
         <div className="flex items-center">
           <img src="/icon-gas.svg" className="mr-[4px]" /> $0
         </div>
-        <div>Liquidation at {"<"} 150%</div>
+        <div>Liquidation at {"<"} -%</div>
       </div>
       <div
         className="custom-button fixed-bottom cursor-not-allowed"

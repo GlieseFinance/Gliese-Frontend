@@ -8,17 +8,17 @@ export const questions = [
   {
     questions: "2. How is gUSD 1:1 hard pegged to 1 USD?",
     answer:
-      "When gUSD price above 1 USD: If the gUSD price exceeds 1 USD, users can mint new gUSD by depositing Evmos as collateral and then sell the newly minted gUSD on DEX. As more gUSD is sold, the market supply increases, pushing the price back down to 1 USD. Users can then buy back gUSD at a lower price or use it to repay their loans, realizing a profit from the price difference. When gUSD price below 1 USD: If the gUSD price falls below 1 USD, users can purchase gUSD at a discounted rate on the market and then redeem it within the Gliese Protocol for $1 worth of Evmos/stEvmos. As users buy up the undervalued gUSD, demand increases, driving the price back up to 1 USD. Users can either hold the redeemed Evmos/stEvmos or sell it, profiting from the price difference.",
+      "When gUSD price above 1 USD: If the gUSD price exceeds 1 USD, users can mint new gUSD by depositing Evmos as collateral and then sell the newly minted gUSD on DEX. As more gUSD is sold, the market supply increases, pushing the price back down to 1 USD. Users can then buy back gUSD at a lower price or use it to repay their loans, realizing a profit from the price difference. When gUSD price below 1 USD: If the gUSD price falls below 1 USD, users can purchase gUSD at a discounted rate on the market and then redeem it within the Gliese Protocol for $1 worth of stEvmos. As users buy up the undervalued gUSD, demand increases, driving the price back up to 1 USD. Users can either hold the redeemed stEvmos or sell it, profiting from the price difference.",
   },
   {
     questions: "3. How can I mint (borrow) with Gliese?",
     answer:
-      "To mint (borrow) gUSD, you must deposit a certain amount of collateral (Evmos or stEvmos) through Gliese. Then you can mint gUSD against your collateral up to a collateral ratio of 170%.",
+      "To mint (borrow) gUSD, you must deposit a certain amount of collateral (Evmos or stEvmos) through Gliese. Then you can mint gUSD against your collateral up to a collateral ratio of -%.",
   },
   {
     questions: "4. Where does the interest on gUSD come from?",
     answer:
-      "The interest on gUSD comes from the Gliese Protocol's interaction with stEvmos and Liquidity Staking Derivatives (LSD). When users deposit Evmos as collateral, it is converted to stEvmos through the Gliese Protocol. The stEvmos earns yield from staking on the Ethereum 2.0 network, and this yield is further boosted by interacting with LSD.The earned yield is then converted back into gUSD on a regular basis through decentralized exchanges (DEXs). As a result, gUSD holders receive a stable interest, with the base APY being around 8%. This interest is generated from the yield earned on the stEvmos and LSD mechanisms within the Gliese Protocol.",
+      "The interest on gUSD comes from the Gliese Protocol's interaction with stEvmos and Liquidity Staking Derivatives (LSD). When users deposit Evmos as collateral, it is converted to stEvmos through the Gliese Protocol. The stEvmos earns yield from staking on the Ethereum 2.0 network, and this yield is further boosted by interacting with LSD.The earned yield is then converted back into gUSD on a regular basis through decentralized exchanges (DEXs). As a result, gUSD holders receive a stable interest, with the base APY being around -%. This interest is generated from the yield earned on the stEvmos and LSD mechanisms within the Gliese Protocol.",
   },
   {
     questions: "5. Does Gliese charge any fees?",

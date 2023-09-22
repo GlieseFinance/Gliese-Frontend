@@ -37,11 +37,6 @@ const navs = [
     path: "/",
   },
   {
-    text: "Stake",
-    path: "/stake",
-    disabled: true,
-  },
-  {
     text: "gUSD",
     path: "/gusd",
   },
@@ -74,6 +69,7 @@ const navs = [
   {
     text: "Docs",
     path: "/docs",
+    disabled: true,
   },
 ];
 
@@ -220,6 +216,10 @@ export default function Layout({ children }: { children: ReactElement }) {
                   target="_blank"
                   key={index}
                   href={item.path}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toast("Coming Soon");
+                  }}
                   className="mr-[40px] text-[14px] cursor-pointer link"
                 >
                   {item.text}
@@ -230,10 +230,12 @@ export default function Layout({ children }: { children: ReactElement }) {
               <img
                 src="/icon-footer-twitter.png"
                 className="mr-[20px] w-[25px] cursor-pointer"
+                onClick={() => toast("Coming Soon")}
               />
               <img
                 src="/icon-footer-discord.png"
                 className="w-[25px] cursor-pointer"
+                onClick={() => toast("Coming Soon")}
               />
             </div>
           </footer>
