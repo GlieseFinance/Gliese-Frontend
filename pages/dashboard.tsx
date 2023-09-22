@@ -17,7 +17,7 @@ interface CoingeckoSimpleResponse {
 
 const infoTextMap: any = {
   locked:
-    "Collateral Locked: This is the amount of Evmos or stEvmos that you have deposited on Gliese Protocol in USD value based on the current market price of Evmos and stEvmos.",
+    "Collateral Locked: This is the amount of stEvmos that you have deposited on Gliese Protocol in USD value based on the current market price of stEvmos.",
   ratio:
     "Collateral Ratio is expressed as a percentage and calculated bydividing the value of your deposited stEvmos in USD by the amount ofyour minted gUSD. A lower Collateral Ratio means you have less stEvmos backing your USD, which increases the risk of liquiation.",
   price:
@@ -27,11 +27,11 @@ const infoTextMap: any = {
 const leftBlockTextMap: any = {
   mint: {
     title: "Mint gUSD",
-    desc: "To mint (borrow) gUSD, you are required to deposit a specific amount of collateral (Evmos or stEvmos) using the Gliese platform, or have a pre-existing balance of Evmos or stEvmos within the Gliese Protocol. You can then generate gUSD against your collateral up to a maximum collateral ratio of -%.",
+    desc: "To mint (borrow) gUSD, you are required to deposit a specific amount of collateral (stEvmos) using the Gliese platform, or have a pre-existing balance of stEvmos within the Gliese Protocol. You can then generate gUSD against your collateral up to a maximum collateral ratio of -%.",
   },
   withdraw: {
     title: "Withdraw stEvmos",
-    desc: "By withdrawing stEvmos collateral, you will get your deposited stEvmos back and reduce your exposure to price fluctuations. However, this also means that your collateral Ratio drops and you may face liquidation if the price of Evmos falls below a certain threshold. You should always monitor your loan and keep a healthy collateral Ratio to avoid losing your funds.",
+    desc: "By withdrawing stEvmos collateral, you will get your deposited stEvmos back and reduce your exposure to price fluctuations. However, this also means that your collateral Ratio drops and you may face liquidation if the price of stEvmos falls below a certain threshold. You should always monitor your loan and keep a healthy collateral Ratio to avoid losing your funds.",
   },
   repay: {
     title: "Repay gUSD",
@@ -129,7 +129,7 @@ function WithdrawPart() {
       </div>
       <div>
         <OutlinedInput
-          placeholder="0 Evmos"
+          placeholder="0 stEvmos"
           className="custom-input"
           endAdornment={
             <InputAdornment position="end">
@@ -168,7 +168,7 @@ function RepayPart() {
       </div>
       <div>
         <OutlinedInput
-          placeholder="0 Evmos"
+          placeholder="0 stEvmos"
           className="custom-input"
           endAdornment={
             <InputAdornment position="end">
@@ -207,7 +207,7 @@ function RedeemPart() {
       </div>
       <div>
         <OutlinedInput
-          placeholder="0 Evmos"
+          placeholder="0 stEvmos"
           className="custom-input"
           endAdornment={
             <InputAdornment position="end">
