@@ -34,10 +34,6 @@ export const questions = [
 
 export const daoFeatures = [
   {
-    icon: "/icon-gliese-1.png",
-    text: "Hold gUSD and receive yield",
-  },
-  {
     icon: "/icon-gliese-2.png",
     text: "Mint gUSD and earn GLSE token",
   },
