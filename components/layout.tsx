@@ -49,7 +49,7 @@ const navs = [
         path: "/dashboard?tab=mint",
       },
       {
-        text: "Withdraw Evmos",
+        text: "Withdraw stEvmos",
         path: "/dashboard?tab=withdraw",
       },
       {
