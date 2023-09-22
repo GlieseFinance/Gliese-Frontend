@@ -18,7 +18,7 @@ export const questions = [
   {
     questions: "4. Where does the interest on gUSD come from?",
     answer:
-      "The interest on gUSD comes from the Gliese Protocol's interaction with stEvmos and Liquidity Staking Derivatives (LSD). When users deposit Evmos as collateral, it is converted to stEvmos through the Gliese Protocol. The stEvmos earns yield from staking on the Ethereum 2.0 network, and this yield is further boosted by interacting with LSD.The earned yield is then converted back into gUSD on a regular basis through decentralized exchanges (DEXs). As a result, gUSD holders receive a stable interest, with the base APY being around -%. This interest is generated from the yield earned on the stEvmos and LSD mechanisms within the Gliese Protocol.",
+      "The interest on gUSD comes from the Gliese Protocol's interaction with stEvmos and Liquidity Staking Derivatives (LSD). When users deposit Evmos as collateral, it is converted to stEvmos through the Gliese Protocol. The stEvmos earns yield from staking on the Evmos network, and this yield is further boosted by interacting with LSD.The earned yield is then converted back into gUSD on a regular basis through decentralized exchanges (DEXs). As a result, gUSD holders receive a stable interest, with the base APY being around -%. This interest is generated from the yield earned on the stEvmos and LSD mechanisms within the Gliese Protocol.",
   },
   {
     questions: "5. Does Gliese charge any fees?",
